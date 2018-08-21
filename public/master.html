@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>HOla mundo </h2>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        this.socket = io.connect('http://localhost:3001');
+        this.emmit = function(event) {
+            const keyCode= event.keyCode;
+            if(keyCode === 119 || keyCode === 97 || keyCode === 115 || keyCode === 100){
+                this.socket.emit('master', { keyCode:event.keyCode });
+            }
+        };
+        document.addEventListener('keypress',this.emmit.bind(this));;
+    </script>
+</body>
+
+</html>
