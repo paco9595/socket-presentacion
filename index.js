@@ -2,13 +2,14 @@ var express = require('express')
 var app = express();
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
-
+var fs = require('fs')
 server.listen(3001);
 
 app.use('/public', express.static('public'));
 
 app.get('/', function (req, res) {
   console.log('get')
+  res.type('text/html')
   res.sendFile(__dirname + '/public/client.html');
 });
 app.get('/master', function (req, res) {
@@ -21,5 +22,3 @@ io.on('connection', function (socket) {
     socket.broadcast.emit('client',data);
   })
 })
-
-

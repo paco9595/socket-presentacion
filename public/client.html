@@ -8,6 +8,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>Document</title>
+    <link rel="shortcut icon" type="image/ico" href="./favicon.ico" />
     <link rel="stylesheet" href="/public/css/reveal.css" type="plain/css">
     <link rel="stylesheet" href="/public/css/theme/black.css" type="plain/css">
 
@@ -413,14 +414,17 @@
 
     <script src="/socket.io/socket.io.js"></script>
     <script>
-        var socket = io.connect('http://localhost:3001');
-        socket.on('client', function (data) {
-            console.log(data);
-        });
+        (
+            function (io) {
+                var socket = io.connect('http://localhost:3001');
+                socket.on('client', function (data) {
+                    console.log(data);
+                });
+            }
+        )(io);
     </script>
     <script src="http://localhost:3001/public/lib/js/head.min.js" type="aplication/javascript"></script>
     <script src="http://localhost:3001/public/js/reveal.js" type="aplication/javascript"></script>
-
     <script>
         // More info about config & dependencies:
         // - https://github.com/hakimel/reveal.js#configuration

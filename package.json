@@ -1,11 +1,19 @@
 {
   "name": "socket-presentacion",
   "version": "1.0.0",
-  "description": "",
+  "description": "html presentacion with socket.io",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "socket.io",
+    "html presentacion",
+    "express"
+  ],
+  "bugs": {
+    
   },
   "author": "Francisco Villarreal",
   "license": "ISC",
